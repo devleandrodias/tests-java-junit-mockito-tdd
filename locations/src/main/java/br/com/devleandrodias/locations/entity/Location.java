@@ -4,6 +4,9 @@ import java.util.Date;
 
 import lombok.Data;
 
+/**
+ * Location
+ */
 @Data
 public class Location {
 

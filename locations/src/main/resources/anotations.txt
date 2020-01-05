@@ -1,0 +1,13 @@
+ - Princípios do teste - 
+
+FIRST - Fast; Independent; Repeatable; Self-Verifying; Timely;
+
+TestRunner que vai executar o test e coletar os resultados;
+
+TestFixture pré condições necessárias para os testes;
+
+TestSuites onde posso elencar os testes que srão executados;
+
+TestResultFormatter quem vai padronizar os resultados dos testes;
+
+Assertions verifica o estado do que está sendo testado;
