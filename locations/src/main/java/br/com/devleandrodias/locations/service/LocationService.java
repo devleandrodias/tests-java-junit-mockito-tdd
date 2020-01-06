@@ -9,17 +9,18 @@ import br.com.devleandrodias.locations.util.DateUtil;
 
 public class LocationService {
 
-  public Location alugarFilme(User usuario, Movie filme) {
+  public Location alugarFilme(User usuario, Movie movie) {
     Location location = new Location();
 
-    location.setFilme(filme);
+    location.setFilme(movie);
     location.setUser(usuario);
     location.setDataLocacao(new Date());
-    location.setValor(filme.getPrecoLocacao());
+    location.setValor(movie.getPriceLocation());
 
     Date dataEntrega = new Date();
 
     dataEntrega = DateUtil.adicionarDias(dataEntrega, 1);
+
     location.setDataRetorno(dataEntrega);
 
     return location;

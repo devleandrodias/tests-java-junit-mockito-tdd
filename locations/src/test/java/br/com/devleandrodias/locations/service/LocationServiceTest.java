@@ -5,7 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ErrorCollector;
 
 import br.com.devleandrodias.locations.entity.Location;
 import br.com.devleandrodias.locations.entity.Movie;
@@ -16,6 +18,9 @@ import br.com.devleandrodias.locations.util.DateUtil;
  * LocationServiceTest
  */
 public class LocationServiceTest {
+
+  @Rule
+  public ErrorCollector error = new ErrorCollector();
 
   @Test
   public void primeiroTeste() {

@@ -5,17 +5,17 @@ import lombok.Data;
 @Data
 public class Movie {
 
-  private String nome;
-  private Integer estoque;
-  private Double precoLocacao;
+  private String name;
+  private Integer quantity;
+  private Double priceLocation;
 
   public Movie() {
 
   }
 
-  public Movie(String nome, Integer estoque, Double precoLocacao) {
-    this.nome = nome;
-    this.estoque = estoque;
-    this.precoLocacao = precoLocacao;
+  public Movie(String name, Integer quantity, Double priceLocation) {
+    this.name = name;
+    this.quantity = quantity;
+    this.priceLocation = priceLocation;
   }
 }
