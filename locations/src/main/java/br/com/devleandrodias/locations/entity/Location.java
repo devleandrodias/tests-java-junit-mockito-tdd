@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class Location {
 
-  private User usuario;
+  private User user;
   private Movie filme;
   private Date dataLocacao;
   private Date dataRetorno;

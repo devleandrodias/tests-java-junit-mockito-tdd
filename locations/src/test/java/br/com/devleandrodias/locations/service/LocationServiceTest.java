@@ -23,7 +23,7 @@ public class LocationServiceTest {
 
     Location localcao = locacaoService.alugarFilme(usuario, filme);
 
-    Assert.assertTrue(localcao.getValor() == 4.50);
+    Assert.assertEquals(4.50, localcao.getValor(), 0.01);
     Assert.assertTrue(DateUtil.isMesmaData(localcao.getDataLocacao(), new Date()));
     Assert.assertTrue(DateUtil.isMesmaData(localcao.getDataRetorno(), DateUtil.obterDataComDiferencaDias(1)));
   }

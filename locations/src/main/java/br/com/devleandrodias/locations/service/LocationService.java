@@ -10,19 +10,20 @@ import br.com.devleandrodias.locations.util.DateUtil;
 public class LocationService {
 
   public Location alugarFilme(User usuario, Movie filme) {
-    Location locacao = new Location();
-    locacao.setFilme(filme);
-    locacao.setUsuario(usuario);
-    locacao.setDataLocacao(new Date());
-    locacao.setValor(filme.getPrecoLocacao());
+    Location location = new Location();
+
+    location.setFilme(filme);
+    location.setUser(usuario);
+    location.setDataLocacao(new Date());
+    location.setValor(filme.getPrecoLocacao());
 
     // Entrega no dia seguinte
     Date dataEntrega = new Date();
     dataEntrega = DateUtil.adicionarDias(dataEntrega, 1);
-    locacao.setDataRetorno(dataEntrega);
+    location.setDataRetorno(dataEntrega);
 
     // Salvando a locacao...
 
-    return locacao;
+    return location;
   }
 }

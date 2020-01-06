@@ -11,3 +11,13 @@ TestSuites onde posso elencar os testes que srão executados;
 TestResultFormatter quem vai padronizar os resultados dos testes;
 
 Assertions verifica o estado do que está sendo testado;
+
+
+Assert.assertTrue = Isso é uma assertiva
+
+// (esperado, atual)
+
+Assert.assertEquals(0.51, 0.51, 0.1); // double, double, margem de erro de comparação
+Assert.assertEquals(Integer.valueOf(i), i2); // Unboxign e Autoboxing não funciona precisa converter
+Assert.assertEquals(user1, user2); // Procura o método equals do objeto de comparação
+Assert.assertSame(user1, user2); // Compara endereço de memória mesmo com método equals sbrescrito
