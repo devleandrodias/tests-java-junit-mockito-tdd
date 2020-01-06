@@ -1,8 +1,10 @@
 package br.com.devleandrodias.locations.service;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Date;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.devleandrodias.locations.entity.Location;
@@ -23,8 +25,8 @@ public class LocationServiceTest {
 
     Location localcao = locacaoService.alugarFilme(usuario, filme);
 
-    Assert.assertEquals(4.50, localcao.getValor(), 0.01);
-    Assert.assertTrue(DateUtil.isMesmaData(localcao.getDataLocacao(), new Date()));
-    Assert.assertTrue(DateUtil.isMesmaData(localcao.getDataRetorno(), DateUtil.obterDataComDiferencaDias(1)));
+    assertEquals(4.50, localcao.getValor(), 0.01);
+    assertTrue(DateUtil.isMesmaData(localcao.getDataLocacao(), new Date()));
+    assertTrue(DateUtil.isMesmaData(localcao.getDataRetorno(), DateUtil.obterDataComDiferencaDias(1)));
   }
 }

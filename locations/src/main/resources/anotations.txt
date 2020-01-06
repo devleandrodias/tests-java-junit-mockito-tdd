@@ -21,3 +21,4 @@ Assert.assertEquals(0.51, 0.51, 0.1); // double, double, margem de erro de compa
 Assert.assertEquals(Integer.valueOf(i), i2); // Unboxign e Autoboxing não funciona precisa converter
 Assert.assertEquals(user1, user2); // Procura o método equals do objeto de comparação
 Assert.assertSame(user1, user2); // Compara endereço de memória mesmo com método equals sbrescrito
+Assert.assertThat(generico, generico) // Comparação verifique que (Genérico), muda ordem (atual, esperado)
