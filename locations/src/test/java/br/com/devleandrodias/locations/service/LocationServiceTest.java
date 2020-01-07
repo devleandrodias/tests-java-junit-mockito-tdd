@@ -17,6 +17,8 @@ import org.junit.rules.ExpectedException;
 import br.com.devleandrodias.locations.entity.Location;
 import br.com.devleandrodias.locations.entity.Movie;
 import br.com.devleandrodias.locations.entity.User;
+import br.com.devleandrodias.locations.exceptions.FilmeSemEstoqueException;
+import br.com.devleandrodias.locations.exceptions.LocadoraException;
 import br.com.devleandrodias.locations.util.DateUtil;
 
 /**
@@ -46,8 +48,8 @@ public class LocationServiceTest {
     assertTrue(DateUtil.isMesmaData(localcao.getDataRetorno(), DateUtil.obterDataComDiferencaDias(1)));
   }
 
-  @Test(expected = Exception.class)
-  public void testLocalcaoFilmeSemEstoqueDelegante() throws Exception {
+  @Test(expected = FilmeSemEstoqueException.class)
+  public void testLocalcaoFilmeSemEstoqueElegante() throws Exception {
     // scenery
     LocationService locacaoService = new LocationService();
     User usuario = new User("Leandro Dias");
@@ -85,5 +87,35 @@ public class LocationServiceTest {
 
     // action
     locacaoService.alugarFilme(usuario, filme);
+  }
+
+  @Test
+  public void testLocacaoUsuarioVazio() throws FilmeSemEstoqueException {
+    // scenery
+    LocationService locacaoService = new LocationService();
+    User usuario = new User("Leandro Dias");
+    Movie filme = new Movie("Titanic", 1, 4.50);
+
+    // action
+    try {
+      locacaoService.alugarFilme(null, filme);
+      fail();
+    } catch (LocadoraException e) {
+      assertThat(e.getMessage(), is("Usuário vázio"));
+    }
+  }
+
+  @Test
+  public void testLocacaoFilmeVazio() throws FilmeSemEstoqueException, LocadoraException {
+    // scenery
+    LocationService locacaoService = new LocationService();
+    User usuario = new User("Leandro Dias");
+    Movie filme = new Movie("Titanic", 1, 4.50);
+
+    expection.expect(LocadoraException.class);
+    expection.expectMessage("Filme vazio");
+
+    // action
+    locacaoService.alugarFilme(usuario, null);
   }
 }

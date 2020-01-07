@@ -5,14 +5,22 @@ import java.util.Date;
 import br.com.devleandrodias.locations.entity.Location;
 import br.com.devleandrodias.locations.entity.Movie;
 import br.com.devleandrodias.locations.entity.User;
+import br.com.devleandrodias.locations.exceptions.FilmeSemEstoqueException;
+import br.com.devleandrodias.locations.exceptions.LocadoraException;
 import br.com.devleandrodias.locations.util.DateUtil;
 
 public class LocationService {
 
-  public Location alugarFilme(User usuario, Movie movie) throws Exception {
+  public Location alugarFilme(User usuario, Movie movie) throws FilmeSemEstoqueException, LocadoraException {
+
+    if (usuario == null)
+      throw new LocadoraException("Usuário Vázio");
+
+    if (movie == null)
+      throw new LocadoraException("Filme vazio");
 
     if (movie.getQuantity() == 0)
-      throw new Exception("Filme sem estoque");
+      throw new FilmeSemEstoqueException();
 
     Location location = new Location();
 
