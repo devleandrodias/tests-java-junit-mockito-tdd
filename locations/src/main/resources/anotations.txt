@@ -27,3 +27,7 @@ Assert.assertThat(generico, generico) // Comparação verifique que (Genérico),
   public ErrorCollector error = new ErrorCollector();
 
 criar uma lista de erros do testes em vez de parar no primeiro erro
+
+// Falhas ocorrem quando o teste e executado sem problemas porem alguma condições que era esperada não foi atendida
+
+// Erro acontecem quando algum problema durante a execução do teste impede que o mesmo seja concluido, quando ocorre uma execção não esperada e não tratada

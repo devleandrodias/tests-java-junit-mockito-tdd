@@ -9,7 +9,11 @@ import br.com.devleandrodias.locations.util.DateUtil;
 
 public class LocationService {
 
-  public Location alugarFilme(User usuario, Movie movie) {
+  public Location alugarFilme(User usuario, Movie movie) throws Exception {
+
+    if (movie.getQuantity() == 0)
+      throw new Exception("Filme sem estoque");
+
     Location location = new Location();
 
     location.setFilme(movie);
